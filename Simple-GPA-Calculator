@@ -1,0 +1,58 @@
+//GPA Calculator
+//Martin Thuss
+//September 14 2022
+
+#include <iostream>
+//Make things a little cleaner by including
+using namespace std;
+
+int main()
+{
+    //Introduce Variables
+    int gradeAmount, loopCounter;
+    float gradeSum = 0;
+    float gradeEntered, finalGPA;
+    //Intro, take value for amount of grades
+    cout << "GPA Calculator (On SFU's 4.33 Scale)\n";
+    cout << "How many grades are being accounted for: ";
+    cin >> gradeAmount;
+    //Clean screen
+    system("CLS");
+
+    cout << "Please keep this scale in mind:\n";
+    cout << "A+ is 96%-100%. Value is 4.33\n";
+    cout << "A is 91%-95%. Value is 4.00\n";
+    cout << "A- is 87%-90%. Value is 3.67\n";
+    cout << "B+ is 83%-86%. Value is 3.33\n";
+    cout << "B is 79%-82%. Value is 3.00\n";
+    cout << "B- is 75%-78%. Value is 2.67\n";
+    cout << "C+ is 70%-74%. Value is 2.33\n";
+    cout << "C is 65%-69%. Value is 2.00\n";
+    cout << "C- is 59%-64%. Value is 1.67\n";
+    cout << "D is 50%-58%. Value is 1.00\n";
+    cout << "F is 0%-49%. Value is 0.00\n";
+    //For each grade, go through loop
+    for (loopCounter = 1; loopCounter <= gradeAmount; loopCounter++) {
+        cout << "Please enter the numerical value of Grade: \n";
+        cin >> gradeEntered;
+        if (0.00 <= gradeEntered <= 4.33) {
+            //Adds each entered grade value together
+            gradeSum += gradeEntered;
+            gradeEntered == 0;
+            loopCounter + 1;
+        }
+        //Filters out ineligible grades
+        else {
+            cout << "The highest number you can enter is 4.33 and the lowest is 0.00.\n";
+            loopCounter -= 1;
+            gradeSum -= gradeEntered;
+        }
+    }
+    //Clean screen one last time
+    system("CLS");
+    //Calculate average of all entered values 
+    finalGPA = gradeSum / gradeAmount;
+    cout << "Your GPA is: ";
+    cout << finalGPA;
+
+}
